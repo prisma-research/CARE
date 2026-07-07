@@ -1,0 +1,6 @@
+# Core static pipeline (Stages 1-2) — a single optional dependency.
+bashlex>=0.18   # POSIX shell parser for the L1 structure layer;
+                # CARE degrades to a regex fallback if it is absent.
+
+# Stage 3 (Resolution) LLM judge — only needed when use_judge=True.
+openai>=1.0     # OpenAI-compatible client (e.g. a local vLLM server).

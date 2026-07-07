@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "care-guard"
+version = "1.0.0"
+description = "CARE: Canonicalization, Attribution, and Resolution Engine — a shell-specific, static-first pre-execution verifier for shell-executing LLM agents."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "CARE authors" }]
+keywords = ["llm-agent", "shell", "security", "pre-execution", "guardrail", "static-analysis"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Security",
+]
+dependencies = ["bashlex>=0.18"]
+
+[project.optional-dependencies]
+resolution = ["openai>=1.0"]
+test = ["pytest>=7.0"]
+
+[project.urls]
+Homepage = "https://github.com/Ameame1/CARE"
+
+[tool.setuptools]
+packages = ["care"]
+
+[tool.setuptools.package-data]
+care = ["rules/*.json"]

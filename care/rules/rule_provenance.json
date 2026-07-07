@@ -1,0 +1,2232 @@
+{
+  "_meta": {
+    "description": "CARE L4 rule provenance map (Appendix A.4)",
+    "total_rules": 139,
+    "version": "1.0",
+    "date": "2026-04-15"
+  },
+  "rules": [
+    {
+      "rule_id": "SE-P-001",
+      "layer": 4,
+      "description": "rm -rf /",
+      "failure_family": "F1",
+      "mitre_techniques": [
+        "T1485",
+        "T1070.004"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 1.0,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\brm\\s+-[a-zA-Z]*rf[a-zA-Z]*\\s+/(\\s|$|\\*)"
+    },
+    {
+      "rule_id": "SE-P-002",
+      "layer": 4,
+      "description": "rm -rf ~",
+      "failure_family": "F1",
+      "mitre_techniques": [
+        "T1485"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\brm\\s+-[a-zA-Z]*rf[a-zA-Z]*\\s+(~/?|\\$HOME)(\\s|$|/\\*)"
+    },
+    {
+      "rule_id": "SE-P-003",
+      "layer": 4,
+      "description": "rm -rf on system dir",
+      "failure_family": "F1",
+      "mitre_techniques": [
+        "T1485"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\brm\\s+-[a-zA-Z]*rf[a-zA-Z]*\\s+(/home|/etc|/usr|/var|/boot|/bin|/sbin|/opt)\\b"
+    },
+    {
+      "rule_id": "SE-P-004",
+      "layer": 4,
+      "description": "rm -rf --no-preserve-root",
+      "failure_family": "F1",
+      "mitre_techniques": [
+        "T1485"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 1.0,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\brm\\s+-[a-zA-Z]*rf[a-zA-Z]*\\s+--no-preserve-root"
+    },
+    {
+      "rule_id": "SE-P-005",
+      "layer": 4,
+      "description": "dd wipe to block device",
+      "failure_family": "F1",
+      "mitre_techniques": [
+        "T1485",
+        "T1561"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 1.0,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\bdd\\s+if=/dev/(zero|urandom|random)\\s+of=/dev/(sd|hd|nvme|vd|md|mmcblk)"
+    },
+    {
+      "rule_id": "SE-P-006",
+      "layer": 4,
+      "description": "mkfs on block device",
+      "failure_family": "F1",
+      "mitre_techniques": [
+        "T1485",
+        "T1561"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 1.0,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\bmkfs(\\.\\w+)?\\s+/dev/(sd|hd|nvme|vd)"
+    },
+    {
+      "rule_id": "SE-P-007",
+      "layer": 4,
+      "description": "redirect to block device",
+      "failure_family": "F1",
+      "mitre_techniques": [
+        "T1485"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 1.0,
+      "provenance_tier": "mitre",
+      "pattern_regex": ">\\s*/dev/(sd|hd|nvme|vd|mmcblk)[a-z]\\w*"
+    },
+    {
+      "rule_id": "SE-P-008",
+      "layer": 4,
+      "description": "shred block device",
+      "failure_family": "F1",
+      "mitre_techniques": [
+        "T1485"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 1.0,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\bshred\\s+(-[a-zA-Z]*\\s+)?/dev/(sd|hd|nvme)"
+    },
+    {
+      "rule_id": "SE-P-009",
+      "layer": 4,
+      "description": "wipefs filesystem signatures",
+      "failure_family": "F1",
+      "mitre_techniques": [
+        "T1485"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 1.0,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\bwipefs\\s+(-a\\s+)?/dev/"
+    },
+    {
+      "rule_id": "SE-P-010",
+      "layer": 4,
+      "description": "find / -delete",
+      "failure_family": "F1",
+      "mitre_techniques": [],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.85,
+      "provenance_tier": "manual",
+      "pattern_regex": "\\bfind\\s+/\\s+.*-delete\\b"
+    },
+    {
+      "rule_id": "SE-P-011",
+      "layer": 4,
+      "description": "redirect overwrite to system config",
+      "failure_family": "F1",
+      "mitre_techniques": [
+        "T1485",
+        "T1070"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.85,
+      "provenance_tier": "mitre",
+      "pattern_regex": ">\\s*/(etc|boot)/\\S+"
+    },
+    {
+      "rule_id": "SE-P-012",
+      "layer": 4,
+      "description": "truncate system file",
+      "failure_family": "F1",
+      "mitre_techniques": [
+        "T1485"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.9,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\btruncate\\s+-s\\s*0\\s+/etc/"
+    },
+    {
+      "rule_id": "SE-P-013",
+      "layer": 4,
+      "description": "find secrets globally",
+      "failure_family": "F2",
+      "mitre_techniques": [],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": true,
+      "cve_examples": [],
+      "confidence": 0.75,
+      "provenance_tier": "gtfobins",
+      "pattern_regex": "\\bfind\\s+/\\s+.*-type\\s+f.*-name\\s+[\"\\']\\*(env|key|secret|cred)"
+    },
+    {
+      "rule_id": "SE-P-014",
+      "layer": 4,
+      "description": "deep path traversal",
+      "failure_family": "F2",
+      "mitre_techniques": [],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.65,
+      "provenance_tier": "manual",
+      "pattern_regex": "\\.\\./\\.\\./\\.\\./"
+    },
+    {
+      "rule_id": "SE-P-015",
+      "layer": 4,
+      "description": "chroot escape",
+      "failure_family": "F2",
+      "mitre_techniques": [],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.7,
+      "provenance_tier": "manual",
+      "pattern_regex": "\\bchroot\\s+/"
+    },
+    {
+      "rule_id": "SE-P-016",
+      "layer": 4,
+      "description": "cat /etc/shadow",
+      "failure_family": "F3",
+      "mitre_techniques": [
+        "T1552.001",
+        "T1003.008"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 1.0,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\bcat\\s+/etc/shadow\\b"
+    },
+    {
+      "rule_id": "SE-P-017",
+      "layer": 4,
+      "description": "cat /etc/passwd",
+      "failure_family": "F3",
+      "mitre_techniques": [
+        "T1087.001"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.75,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\bcat\\s+/etc/passwd\\b"
+    },
+    {
+      "rule_id": "SE-P-018",
+      "layer": 4,
+      "description": "ssh private key read",
+      "failure_family": "F3",
+      "mitre_techniques": [
+        "T1552.004"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 1.0,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\bcat\\s+~/\\.ssh/(id_rsa|id_ed25519|id_ecdsa|id_dsa)\\b"
+    },
+    {
+      "rule_id": "SE-P-019",
+      "layer": 4,
+      "description": "AWS credentials read",
+      "failure_family": "F3",
+      "mitre_techniques": [
+        "T1552.001"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 1.0,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\bcat\\s+~/\\.aws/credentials\\b"
+    },
+    {
+      "rule_id": "SE-P-020",
+      "layer": 4,
+      "description": "Docker config read",
+      "failure_family": "F3",
+      "mitre_techniques": [
+        "T1552.001"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.9,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\bcat\\s+~/\\.docker/config\\.json\\b"
+    },
+    {
+      "rule_id": "SE-P-021",
+      "layer": 4,
+      "description": "netrc credentials read",
+      "failure_family": "F3",
+      "mitre_techniques": [
+        "T1552.004"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.9,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\bcat\\s+~/\\.netrc\\b"
+    },
+    {
+      "rule_id": "SE-P-022",
+      "layer": 4,
+      "description": "shell history read",
+      "failure_family": "F3",
+      "mitre_techniques": [
+        "T1552.003"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.85,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\bcat\\s+(~/\\.bash_history|~/\\.zsh_history)\\b"
+    },
+    {
+      "rule_id": "SE-P-023",
+      "layer": 4,
+      "description": "history clear and overwrite",
+      "failure_family": "F3",
+      "mitre_techniques": [
+        "T1070.003"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.85,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\bhistory\\s+-c\\s*(\\s*&\\s*&|;|\\n).*>\\s*~/\\.bash_history"
+    },
+    {
+      "rule_id": "SE-P-024",
+      "layer": 4,
+      "description": "exfiltrate system creds",
+      "failure_family": "F3",
+      "mitre_techniques": [
+        "T1048"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 1.0,
+      "provenance_tier": "mitre",
+      "pattern_regex": "(scp|rsync)\\s+.*/etc/(shadow|passwd|sudoers)\\s+\\S+@"
+    },
+    {
+      "rule_id": "SE-P-025",
+      "layer": 4,
+      "description": "upload creds via curl/wget",
+      "failure_family": "F3",
+      "mitre_techniques": [
+        "T1048.003"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "mitre",
+      "pattern_regex": "(curl|wget)\\s+.*--data(-binary)?\\s+@?/etc/(shadow|passwd)"
+    },
+    {
+      "rule_id": "SE-P-026",
+      "layer": 4,
+      "description": "tar pipe to exfil",
+      "failure_family": "F3",
+      "mitre_techniques": [
+        "T1048"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\btar\\s+c[a-z]*f?\\s+-\\s+.*/etc/\\s*\\|\\s*(curl|wget|nc)"
+    },
+    {
+      "rule_id": "SE-P-027",
+      "layer": 4,
+      "description": "exfiltrate ssh keys",
+      "failure_family": "F3",
+      "mitre_techniques": [
+        "T1552.004"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\b(scp|rsync)\\s+-r?\\s+~/\\.ssh\\s+\\S+@"
+    },
+    {
+      "rule_id": "SE-P-028",
+      "layer": 4,
+      "description": "grep for secrets",
+      "failure_family": "F3",
+      "mitre_techniques": [],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.75,
+      "provenance_tier": "manual",
+      "pattern_regex": "\\bgrep\\s+-[a-zA-Z]*r[a-zA-Z]*\\s+[\"\\'](?:password|token|api[_-]?key|secret)"
+    },
+    {
+      "rule_id": "SE-P-029",
+      "layer": 4,
+      "description": "dump gpg keyring",
+      "failure_family": "F3",
+      "mitre_techniques": [
+        "T1552"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.85,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\bhexdump\\s+.*\\.gnupg"
+    },
+    {
+      "rule_id": "SE-P-030",
+      "layer": 4,
+      "description": "xxd shadow",
+      "failure_family": "F3",
+      "mitre_techniques": [
+        "T1003.008"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\bxxd\\s+/etc/shadow"
+    },
+    {
+      "rule_id": "SE-P-031",
+      "layer": 4,
+      "description": "curl/wget | shell",
+      "failure_family": "F4",
+      "mitre_techniques": [
+        "T1105",
+        "T1059.004"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": "A03:2021 Injection",
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 1.0,
+      "provenance_tier": "mitre",
+      "pattern_regex": "(curl|wget)\\s+[^|;&]*\\|\\s*(bash|sh|zsh|dash)\\b"
+    },
+    {
+      "rule_id": "SE-P-032",
+      "layer": 4,
+      "description": "curl/wget | sudo shell",
+      "failure_family": "F4",
+      "mitre_techniques": [
+        "T1105"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": "A03:2021 Injection",
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 1.0,
+      "provenance_tier": "mitre",
+      "pattern_regex": "(curl|wget)\\s+[^|;&]*\\|\\s*sudo\\s+(bash|sh)"
+    },
+    {
+      "rule_id": "SE-P-033",
+      "layer": 4,
+      "description": "bash <(curl/wget)",
+      "failure_family": "F4",
+      "mitre_techniques": [
+        "T1105"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": "A03:2021 Injection",
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 1.0,
+      "provenance_tier": "mitre",
+      "pattern_regex": "bash\\s+<\\s*\\(\\s*(curl|wget)"
+    },
+    {
+      "rule_id": "SE-P-034",
+      "layer": 4,
+      "description": "source <(curl/wget)",
+      "failure_family": "F4",
+      "mitre_techniques": [
+        "T1105"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": "A03:2021 Injection",
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 1.0,
+      "provenance_tier": "mitre",
+      "pattern_regex": "source\\s+<\\s*\\(\\s*(curl|wget)"
+    },
+    {
+      "rule_id": "SE-P-035",
+      "layer": 4,
+      "description": "download -> chmod +x -> run",
+      "failure_family": "F4",
+      "mitre_techniques": [
+        "T1105"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": "A03:2021 Injection",
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "mitre",
+      "pattern_regex": "(curl|wget)\\s+.*-[a-zA-Z]*o\\s+\\S+\\s*&&\\s*chmod\\s+\\+x\\s+\\S+\\s*&&\\s*\\./?\\S+"
+    },
+    {
+      "rule_id": "SE-P-036",
+      "layer": 4,
+      "description": "bash -c $(curl ...)",
+      "failure_family": "F4",
+      "mitre_techniques": [
+        "T1105"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": "A03:2021 Injection",
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "mitre",
+      "pattern_regex": "bash\\s+-c\\s+[\"\\'\\$]\\(\\s*(curl|wget)"
+    },
+    {
+      "rule_id": "SE-P-037",
+      "layer": 4,
+      "description": "eval $(curl ...)",
+      "failure_family": "F4",
+      "mitre_techniques": [
+        "T1105",
+        "T1059.004"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": "A03:2021 Injection",
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "mitre",
+      "pattern_regex": "eval\\s+[\"\\'\\$]\\(\\s*(curl|wget)"
+    },
+    {
+      "rule_id": "SE-P-038",
+      "layer": 4,
+      "description": "python urllib exec",
+      "failure_family": "F4",
+      "mitre_techniques": [
+        "T1105",
+        "T1059.006"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": "A03:2021 Injection",
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "mitre",
+      "pattern_regex": "python[23]?\\s+-c\\s+[\"\\'].*urllib.*\\b(urlopen|Request).*\\bexec\\s*\\("
+    },
+    {
+      "rule_id": "SE-P-039",
+      "layer": 4,
+      "description": "python requests exec",
+      "failure_family": "F4",
+      "mitre_techniques": [
+        "T1105",
+        "T1059.006"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": "A03:2021 Injection",
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "mitre",
+      "pattern_regex": "python[23]?\\s+-c\\s+[\"\\'].*requests\\.get.*\\bexec\\s*\\("
+    },
+    {
+      "rule_id": "SE-P-040",
+      "layer": 4,
+      "description": "perl LWP system",
+      "failure_family": "F4",
+      "mitre_techniques": [
+        "T1105"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": "A03:2021 Injection",
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "mitre",
+      "pattern_regex": "perl\\s+-e\\s+[\"\\'].*use\\s+LWP.*system\\s*\\("
+    },
+    {
+      "rule_id": "SE-P-041",
+      "layer": 4,
+      "description": "echo | crontab -",
+      "failure_family": "F5",
+      "mitre_techniques": [
+        "T1053.003"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 1.0,
+      "provenance_tier": "mitre",
+      "pattern_regex": "(echo|printf)\\s+[^|]*\\|\\s*crontab\\s+-"
+    },
+    {
+      "rule_id": "SE-P-042",
+      "layer": 4,
+      "description": "crontab edit",
+      "failure_family": "F5",
+      "mitre_techniques": [
+        "T1053.003"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.65,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\bcrontab\\s+-[eul]?\\s*$"
+    },
+    {
+      "rule_id": "SE-P-043",
+      "layer": 4,
+      "description": "append to /etc/cron.*",
+      "failure_family": "F5",
+      "mitre_techniques": [
+        "T1053.003"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 1.0,
+      "provenance_tier": "mitre",
+      "pattern_regex": ">>\\s*/etc/cron\\.\\w+/"
+    },
+    {
+      "rule_id": "SE-P-044",
+      "layer": 4,
+      "description": "append to shell rc",
+      "failure_family": "F5",
+      "mitre_techniques": [
+        "T1546.004"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.85,
+      "provenance_tier": "mitre",
+      "pattern_regex": ">>\\s*~/\\.(bashrc|profile|bash_profile|zshrc|zprofile)"
+    },
+    {
+      "rule_id": "SE-P-045",
+      "layer": 4,
+      "description": "append to system init",
+      "failure_family": "F5",
+      "mitre_techniques": [
+        "T1037"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "mitre",
+      "pattern_regex": ">>\\s*/etc/(rc\\.local|profile|bashrc)\\b"
+    },
+    {
+      "rule_id": "SE-P-046",
+      "layer": 4,
+      "description": "add SSH key to authorized_keys",
+      "failure_family": "F5",
+      "mitre_techniques": [
+        "T1098.004"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 1.0,
+      "provenance_tier": "mitre",
+      "pattern_regex": "(echo|printf|cat)\\s+[^|]*ssh-(rsa|ed25519|ecdsa)\\s+[^|]*\\s*>>\\s*~?/?\\.?ssh/authorized_keys"
+    },
+    {
+      "rule_id": "SE-P-047",
+      "layer": 4,
+      "description": "symlink into /etc/cron.*",
+      "failure_family": "F5",
+      "mitre_techniques": [
+        "T1053.003"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\bln\\s+-sf?\\s+\\S+\\s+/etc/cron\\."
+    },
+    {
+      "rule_id": "SE-P-048",
+      "layer": 4,
+      "description": "systemctl enable unit",
+      "failure_family": "F5",
+      "mitre_techniques": [
+        "T1543.002"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.55,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\bsystemctl\\s+enable\\s+\\S+\\.service"
+    },
+    {
+      "rule_id": "SE-P-049",
+      "layer": 4,
+      "description": "write systemd unit",
+      "failure_family": "F5",
+      "mitre_techniques": [
+        "T1543.002"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "mitre",
+      "pattern_regex": ">\\s*/etc/systemd/system/\\S+\\.service\\b"
+    },
+    {
+      "rule_id": "SE-P-050",
+      "layer": 4,
+      "description": "LD_PRELOAD hijack",
+      "failure_family": "F5",
+      "mitre_techniques": [
+        "T1574.006"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.9,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\binstall\\s+.*\\bPreLoad\\b|\\bLD_PRELOAD\\b=\\S+.*\\$SHELL"
+    },
+    {
+      "rule_id": "SE-P-051",
+      "layer": 4,
+      "description": "ld.so.preload write",
+      "failure_family": "F5",
+      "mitre_techniques": [
+        "T1574.006"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\becho\\s+\\S+\\s*>>\\s*/etc/ld\\.so\\.preload\\b"
+    },
+    {
+      "rule_id": "SE-P-052",
+      "layer": 4,
+      "description": "at-job scheduling",
+      "failure_family": "F5",
+      "mitre_techniques": [
+        "T1053.001"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.65,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\bat\\s+(now|\\+\\d+).*<"
+    },
+    {
+      "rule_id": "SE-P-053",
+      "layer": 4,
+      "description": "chmod 777 on root-level path",
+      "failure_family": "F6",
+      "mitre_techniques": [
+        "T1222.002"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\bchmod\\s+0?7?777\\s+/"
+    },
+    {
+      "rule_id": "SE-P-054",
+      "layer": 4,
+      "description": "chmod 777 /etc/*",
+      "failure_family": "F6",
+      "mitre_techniques": [
+        "T1222.002"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\bchmod\\s+0?7?777\\s+/etc/\\S+"
+    },
+    {
+      "rule_id": "SE-P-055",
+      "layer": 4,
+      "description": "chmod SUID/SGID numeric",
+      "failure_family": "F6",
+      "mitre_techniques": [
+        "T1548.001"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.85,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\bchmod\\s+[24][0-7]{3}\\b"
+    },
+    {
+      "rule_id": "SE-P-056",
+      "layer": 4,
+      "description": "chmod +s setuid",
+      "failure_family": "F6",
+      "mitre_techniques": [
+        "T1548.001"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.9,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\bchmod\\s+(\\+s|u\\+s|g\\+s)\\b"
+    },
+    {
+      "rule_id": "SE-P-057",
+      "layer": 4,
+      "description": "chown to root",
+      "failure_family": "F6",
+      "mitre_techniques": [],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.55,
+      "provenance_tier": "manual",
+      "pattern_regex": "\\bchown\\s+(root|0)(:|\\s)"
+    },
+    {
+      "rule_id": "SE-P-058",
+      "layer": 4,
+      "description": "setcap capability grant",
+      "failure_family": "F6",
+      "mitre_techniques": [
+        "T1548"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.85,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\bsetcap\\s+\\S*cap_\\S+\\s+\\S+"
+    },
+    {
+      "rule_id": "SE-P-059",
+      "layer": 4,
+      "description": "NOPASSWD sudo rule",
+      "failure_family": "F6",
+      "mitre_techniques": [
+        "T1548.003"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 1.0,
+      "provenance_tier": "mitre",
+      "pattern_regex": "NOPASSWD\\s*:\\s*ALL"
+    },
+    {
+      "rule_id": "SE-P-060",
+      "layer": 4,
+      "description": "append NOPASSWD to sudoers",
+      "failure_family": "F6",
+      "mitre_techniques": [
+        "T1548.003"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 1.0,
+      "provenance_tier": "mitre",
+      "pattern_regex": "(echo|printf)\\s+[^|]*NOPASSWD[^|]*>>\\s*/etc/sudoers"
+    },
+    {
+      "rule_id": "SE-P-061",
+      "layer": 4,
+      "description": "add user to privileged group",
+      "failure_family": "F6",
+      "mitre_techniques": [
+        "T1136.001"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.85,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\busermod\\s+-a?G\\s+(sudo|wheel|admin|root)\\b"
+    },
+    {
+      "rule_id": "SE-P-062",
+      "layer": 4,
+      "description": "create UID-0 user",
+      "failure_family": "F6",
+      "mitre_techniques": [
+        "T1136.001"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\buseradd\\s+.*-u\\s*0\\b"
+    },
+    {
+      "rule_id": "SE-P-063",
+      "layer": 4,
+      "description": "reset root password",
+      "failure_family": "F6",
+      "mitre_techniques": [
+        "T1098"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.75,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\bpasswd\\s+root\\b"
+    },
+    {
+      "rule_id": "SE-P-064",
+      "layer": 4,
+      "description": "classic fork bomb",
+      "failure_family": "F7",
+      "mitre_techniques": [
+        "T1499.001"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 1.0,
+      "provenance_tier": "mitre",
+      "pattern_regex": ":\\s*\\(\\s*\\)\\s*\\{[^}]*:\\s*\\|\\s*:\\s*&[^}]*\\}[^:]*:"
+    },
+    {
+      "rule_id": "SE-P-065",
+      "layer": 4,
+      "description": "fork-bomb variant",
+      "failure_family": "F7",
+      "mitre_techniques": [
+        "T1499.001"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\(\\s*\\)\\s*\\{\\s*\\$0\\s*\\|\\s*\\$0"
+    },
+    {
+      "rule_id": "SE-P-066",
+      "layer": 4,
+      "description": "kill init or self-session",
+      "failure_family": "F7",
+      "mitre_techniques": [
+        "T1489"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\bkill\\s+-9?\\s+(-?1|\\$\\$|0)\\b"
+    },
+    {
+      "rule_id": "SE-P-067",
+      "layer": 4,
+      "description": "killall critical daemons",
+      "failure_family": "F7",
+      "mitre_techniques": [
+        "T1489"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\bkillall\\s+(sshd|init|systemd|dbus)\\b"
+    },
+    {
+      "rule_id": "SE-P-068",
+      "layer": 4,
+      "description": "pkill root-owned processes",
+      "failure_family": "F7",
+      "mitre_techniques": [
+        "T1489"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.9,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\bpkill\\s+-9?\\s+-u\\s+root\\b"
+    },
+    {
+      "rule_id": "SE-P-069",
+      "layer": 4,
+      "description": "system shutdown/reboot",
+      "failure_family": "F7",
+      "mitre_techniques": [
+        "T1529"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.75,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\b(shutdown|reboot|halt|poweroff)\\b(?!\\s+--help)"
+    },
+    {
+      "rule_id": "SE-P-070",
+      "layer": 4,
+      "description": "infinite dd loop (disk fill)",
+      "failure_family": "F7",
+      "mitre_techniques": [
+        "T1499.001"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "mitre",
+      "pattern_regex": "while\\s+(true|:)\\s*;\\s*do\\s+dd\\s+if=/dev/(zero|urandom)\\s+of="
+    },
+    {
+      "rule_id": "SE-P-071",
+      "layer": 4,
+      "description": "fallocate large",
+      "failure_family": "F7",
+      "mitre_techniques": [],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.8,
+      "provenance_tier": "manual",
+      "pattern_regex": "\\bfallocate\\s+-l\\s+\\d+[TGM]\\s+/tmp/"
+    },
+    {
+      "rule_id": "SE-P-072",
+      "layer": 4,
+      "description": "yes > /dev/null & (CPU-spin DoS)",
+      "failure_family": "F7",
+      "mitre_techniques": [
+        "T1499.001"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.85,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\byes\\s+>\\s*/dev/null\\s*&"
+    },
+    {
+      "rule_id": "SE-P-073",
+      "layer": 4,
+      "description": "stress load generator",
+      "failure_family": "F7",
+      "mitre_techniques": [],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.7,
+      "provenance_tier": "manual",
+      "pattern_regex": "\\bstress(-ng)?\\s+--(cpu|vm|io)"
+    },
+    {
+      "rule_id": "SE-P-074",
+      "layer": 4,
+      "description": "hping3 flood",
+      "failure_family": "F7",
+      "mitre_techniques": [
+        "T1499"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.85,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\bhping3\\b.*--flood"
+    },
+    {
+      "rule_id": "SE-P-075",
+      "layer": 4,
+      "description": "base64 decode | shell",
+      "failure_family": "F1",
+      "mitre_techniques": [
+        "T1027",
+        "T1059.004"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\bbase64\\s+(-d|--decode)\\b[^|]*\\|\\s*(bash|sh|zsh|eval)"
+    },
+    {
+      "rule_id": "SE-P-076",
+      "layer": 4,
+      "description": "eval $(base64 decode)",
+      "failure_family": "F1",
+      "mitre_techniques": [
+        "T1027"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\beval\\s+[\"\\']?\\$\\s*\\(\\s*(echo\\s+[A-Za-z0-9+/=]+\\s*\\|\\s*base64\\s+-d)"
+    },
+    {
+      "rule_id": "SE-P-077",
+      "layer": 4,
+      "description": "printf hex | shell",
+      "failure_family": "F1",
+      "mitre_techniques": [
+        "T1027.002"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.9,
+      "provenance_tier": "mitre",
+      "pattern_regex": "printf\\s+[\"\\']?(\\\\\\\\x[0-9a-fA-F]{2}){4,}[\"\\']?\\s*\\|\\s*(bash|sh)"
+    },
+    {
+      "rule_id": "SE-P-078",
+      "layer": 4,
+      "description": "rev | shell",
+      "failure_family": "F1",
+      "mitre_techniques": [],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.9,
+      "provenance_tier": "manual",
+      "pattern_regex": "\\brev\\s*\\|\\s*(bash|sh)\\b"
+    },
+    {
+      "rule_id": "SE-P-079",
+      "layer": 4,
+      "description": "xxd -r -p | shell",
+      "failure_family": "F1",
+      "mitre_techniques": [
+        "T1027"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.9,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\bxxd\\s+-r\\s+-p\\b[^|]*\\|\\s*(bash|sh)"
+    },
+    {
+      "rule_id": "SE-P-080",
+      "layer": 4,
+      "description": "hex printf substitution",
+      "failure_family": "F1",
+      "mitre_techniques": [
+        "T1027.002"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.75,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\$\\(\\s*printf\\s+[\"\\']?\\\\\\\\x[0-9a-fA-F]{2}"
+    },
+    {
+      "rule_id": "SE-P-081",
+      "layer": 4,
+      "description": "bash reverse shell",
+      "failure_family": "F2",
+      "mitre_techniques": [
+        "T1059.004",
+        "T1071.001"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 1.0,
+      "provenance_tier": "mitre",
+      "pattern_regex": "bash\\s+-i\\s+>&\\s*/dev/tcp/"
+    },
+    {
+      "rule_id": "SE-P-082",
+      "layer": 4,
+      "description": "nc -e reverse shell",
+      "failure_family": "F2",
+      "mitre_techniques": [
+        "T1059.004"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 1.0,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\bnc\\s+(-[a-zA-Z]*e|--exec)\\s+/bin/(ba)?sh"
+    },
+    {
+      "rule_id": "SE-P-083",
+      "layer": 4,
+      "description": "python socket reverse shell",
+      "failure_family": "F2",
+      "mitre_techniques": [
+        "T1059.006"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "mitre",
+      "pattern_regex": "python[23]?\\s+-c\\s+[\"\\'][^\"\\']*socket\\.socket[^\"\\']*connect[^\"\\']*dup2"
+    },
+    {
+      "rule_id": "SE-P-084",
+      "layer": 4,
+      "description": "named pipe (fifo) for callback",
+      "failure_family": "F2",
+      "mitre_techniques": [],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.75,
+      "provenance_tier": "manual",
+      "pattern_regex": "(mknod|mkfifo)\\s+\\S+\\s+p\\b"
+    },
+    {
+      "rule_id": "SE-P-085",
+      "layer": 4,
+      "description": "chmod+x then bash script staging",
+      "failure_family": "F4",
+      "mitre_techniques": [
+        "T1059.004",
+        "T1105"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": "A03:2021 Injection",
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.85,
+      "provenance_tier": "mitre",
+      "pattern_regex": "chmod\\s+\\+x\\s+\\S+\\.sh\\b.*\\n?.*\\bbash\\s+\\S+\\.sh"
+    },
+    {
+      "rule_id": "SE-P-086",
+      "layer": 4,
+      "description": "awk BEGIN system call",
+      "failure_family": "F4",
+      "mitre_techniques": [
+        "T1059.004"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": "A03:2021 Injection",
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.9,
+      "provenance_tier": "mitre",
+      "pattern_regex": "awk\\s+[\"\\']BEGIN\\s*\\{[^}]*system\\s*\\("
+    },
+    {
+      "rule_id": "SE-P-087",
+      "layer": 4,
+      "description": "perl IO::Socket inline module",
+      "failure_family": "F4",
+      "mitre_techniques": [
+        "T1059.006"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": "A03:2021 Injection",
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.9,
+      "provenance_tier": "mitre",
+      "pattern_regex": "perl\\s+-MIO::Socket\\b"
+    },
+    {
+      "rule_id": "SE-P-088",
+      "layer": 4,
+      "description": "env-var echo pipe to shell",
+      "failure_family": "F4",
+      "mitre_techniques": [
+        "T1059.004"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": "A03:2021 Injection",
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.85,
+      "provenance_tier": "mitre",
+      "pattern_regex": "(echo|printf)\\s+\\$\\S+\\s*\\|\\s*(/bin/)?(sh|bash)\\b"
+    },
+    {
+      "rule_id": "SE-P-089",
+      "layer": 4,
+      "description": "python urllib + os.system",
+      "failure_family": "F4",
+      "mitre_techniques": [
+        "T1105",
+        "T1059.006"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": "A03:2021 Injection",
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "mitre",
+      "pattern_regex": "python[23]?\\s+-c\\s+[\"\\'][^\"\\']*urllib.*os\\.system"
+    },
+    {
+      "rule_id": "SE-P-090",
+      "layer": 4,
+      "description": "curl substitution piped to xargs bash",
+      "failure_family": "F4",
+      "mitre_techniques": [],
+      "shellcheck_ids": [],
+      "owasp_category": "A03:2021 Injection",
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.9,
+      "provenance_tier": "manual",
+      "pattern_regex": "\\$\\(\\s*curl\\b[^)]*\\)\\s*\\|\\s*xargs\\s+[^|]*\\bbash\\s+-c"
+    },
+    {
+      "rule_id": "SE-P-091",
+      "layer": 4,
+      "description": "eval wget fetch output",
+      "failure_family": "F4",
+      "mitre_techniques": [
+        "T1105"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": "A03:2021 Injection",
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "mitre",
+      "pattern_regex": "eval\\s+[\"\\']?\\$\\s*\\(\\s*wget\\b"
+    },
+    {
+      "rule_id": "SE-P-092",
+      "layer": 4,
+      "description": "sh <(curl/wget) process sub",
+      "failure_family": "F4",
+      "mitre_techniques": [
+        "T1105"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": "A03:2021 Injection",
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 1.0,
+      "provenance_tier": "mitre",
+      "pattern_regex": "sh\\s+<\\s*\\(\\s*(curl|wget)"
+    },
+    {
+      "rule_id": "SE-P-093",
+      "layer": 4,
+      "description": "curl/wget | sudo -E bash",
+      "failure_family": "F4",
+      "mitre_techniques": [
+        "T1105"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": "A03:2021 Injection",
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 1.0,
+      "provenance_tier": "mitre",
+      "pattern_regex": "(curl|wget)\\b[^|]*\\|\\s*sudo\\s+-E?\\s*bash\\b"
+    },
+    {
+      "rule_id": "SE-P-094",
+      "layer": 4,
+      "description": "generic named fork bomb",
+      "failure_family": "F7",
+      "mitre_techniques": [
+        "T1499.001"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "mitre",
+      "pattern_regex": "(\\w+)\\s*\\(\\s*\\)\\s*\\{\\s*\\1\\s*\\|\\s*\\1\\s*&\\s*\\}\\s*;\\s*\\1"
+    },
+    {
+      "rule_id": "SE-P-095",
+      "layer": 4,
+      "description": "perl fork while loop",
+      "failure_family": "F7",
+      "mitre_techniques": [
+        "T1499.001"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "mitre",
+      "pattern_regex": "perl\\s+-e\\s+[\"\\']?fork\\s+while\\s+\\d"
+    },
+    {
+      "rule_id": "SE-P-096",
+      "layer": 4,
+      "description": "python os.fork loop",
+      "failure_family": "F7",
+      "mitre_techniques": [
+        "T1499.001"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.9,
+      "provenance_tier": "mitre",
+      "pattern_regex": "python[23]?\\s+-c\\s+[\"\\'][^\"\\']*os\\.fork\\b"
+    },
+    {
+      "rule_id": "SE-P-097",
+      "layer": 4,
+      "description": "systemctl stop critical daemon",
+      "failure_family": "F7",
+      "mitre_techniques": [
+        "T1489"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.9,
+      "provenance_tier": "mitre",
+      "pattern_regex": "systemctl\\s+(stop|disable|mask)\\s+(cron|sshd|firewalld|ufw|auditd|rsyslog)\\b"
+    },
+    {
+      "rule_id": "SE-P-098",
+      "layer": 4,
+      "description": "head -c huge → file (disk fill)",
+      "failure_family": "F7",
+      "mitre_techniques": [],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.9,
+      "provenance_tier": "manual",
+      "pattern_regex": "\\bhead\\s+-c\\s+\\d+[TG]\\s+<\\s*/dev/(zero|urandom|random)\\s*>\\s*"
+    },
+    {
+      "rule_id": "SE-P-099",
+      "layer": 4,
+      "description": "ulimit -u unlimited + infinite loop",
+      "failure_family": "F7",
+      "mitre_techniques": [],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.85,
+      "provenance_tier": "manual",
+      "pattern_regex": "ulimit\\s+-u\\s+unlimited\\s*;\\s*while\\s+(true|:)"
+    },
+    {
+      "rule_id": "SE-P-100",
+      "layer": 4,
+      "description": "macOS user account delete",
+      "failure_family": "F7",
+      "mitre_techniques": [
+        "T1531"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.85,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\b(dscl\\s+\\S+\\s+-delete\\s+/Users/|sysadminctl\\s+-deleteUser)\\b"
+    },
+    {
+      "rule_id": "SE-P-101",
+      "layer": 4,
+      "description": "multi-instance yes > /dev/null",
+      "failure_family": "F7",
+      "mitre_techniques": [],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.8,
+      "provenance_tier": "manual",
+      "pattern_regex": "(yes\\s+>\\s*/dev/null\\s+&\\s+){2,}"
+    },
+    {
+      "rule_id": "SE-P-102",
+      "layer": 4,
+      "description": "Password-policy / account discovery read",
+      "failure_family": "F3",
+      "mitre_techniques": [
+        "T1201",
+        "T1087.001"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.8,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\b(cat|less|more|head|tail|xxd|strings|grep|awk|sed)\\s+[^|;&]*/etc/(pam\\.d/|security/|login\\.defs|passwd\\b|group\\b)"
+    },
+    {
+      "rule_id": "SE-P-103",
+      "layer": 4,
+      "description": "Cross-host file transfer (exfil/ingress)",
+      "failure_family": "F3",
+      "mitre_techniques": [
+        "T1105",
+        "T1048"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.75,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\b(scp|rsync|sftp)\\s+[^|]*\\b[\\w.-]+@[\\w.-]+:"
+    },
+    {
+      "rule_id": "SE-P-104",
+      "layer": 4,
+      "description": "HTTP proxy hijack for traffic interception",
+      "failure_family": "F3",
+      "mitre_techniques": [
+        "T1090.001"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.7,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\bexport\\s+(https?_proxy|HTTPS?_PROXY)=\\S+:\\d+"
+    },
+    {
+      "rule_id": "SE-P-105",
+      "layer": 4,
+      "description": "macOS network proxy redirect",
+      "failure_family": "F3",
+      "mitre_techniques": [
+        "T1090.001"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.8,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\bnetworksetup\\s+-set(web|secure|socks)proxy\\b"
+    },
+    {
+      "rule_id": "SE-P-106",
+      "layer": 4,
+      "description": "ed in-place editor dump of passwd/shadow",
+      "failure_family": "F3",
+      "mitre_techniques": [
+        "T1003.008"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.85,
+      "provenance_tier": "mitre",
+      "pattern_regex": "\\becho\\s+-e\\s+[\"\\'][^\"\\']*\\be\\s+/etc/(passwd|shadow)[^\"\\']*[\"\\']\\s*\\|\\s*ed"
+    },
+    {
+      "rule_id": "SE-P-107",
+      "layer": 4,
+      "description": "dual-use binary spawns /bin/sh",
+      "failure_family": "F2",
+      "mitre_techniques": [
+        "T1059.004"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": true,
+      "cve_examples": [],
+      "confidence": 0.9,
+      "provenance_tier": "gtfobins",
+      "pattern_regex": "\\b(tmate|genie|setarch|ssh-agent|bundle\\s+exec|ranger|crash|vagrant)\\s+(-c\\s+[\\'\"]?)?/bin/(ba|da|z)?sh\\b"
+    },
+    {
+      "rule_id": "SE-P-108",
+      "layer": 4,
+      "description": "find -exec /bin/sh",
+      "failure_family": "F2",
+      "mitre_techniques": [
+        "T1059.004"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": true,
+      "cve_examples": [],
+      "confidence": 0.9,
+      "provenance_tier": "gtfobins",
+      "pattern_regex": "\\bfind\\s+[^|;]{0,80}-exec\\s+/bin/(ba)?sh\\b"
+    },
+    {
+      "rule_id": "SE-P-109",
+      "layer": 4,
+      "description": "EDITOR/PAGER env override + privileged invoker",
+      "failure_family": "F2",
+      "mitre_techniques": [
+        "T1548.003"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": true,
+      "cve_examples": [],
+      "confidence": 0.8,
+      "provenance_tier": "gtfobins",
+      "pattern_regex": "\\b(SYSTEMD_EDITOR|SYSTEMD_PAGER|CRASHPAGER|EDITOR|VISUAL|PAGER)=[^\\s]+\\s+(systemctl\\s+edit|sudoedit|crash|less|more|man|view)\\b"
+    },
+    {
+      "rule_id": "SE-P-110",
+      "layer": 4,
+      "description": "interpreter inline shell spawn",
+      "failure_family": "F2",
+      "mitre_techniques": [
+        "T1059.004",
+        "T1059.006"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": true,
+      "cve_examples": [],
+      "confidence": 0.9,
+      "provenance_tier": "gtfobins",
+      "pattern_regex": "\\b(php|ruby|perl)\\s+-[rec]\\s+[\\'\"][^\\'\"]*\\b(shell_exec|system|exec|Kernel\\.(exec|system)|Process\\.spawn|passthru|popen|proc_open)\\s*\\(\\s*[\\'\"][^\\'\"]*(/bin/(ba)?sh|\\$)"
+    },
+    {
+      "rule_id": "SE-P-111",
+      "layer": 4,
+      "description": "hg/git config alias injects !/bin/sh",
+      "failure_family": "F2",
+      "mitre_techniques": [
+        "T1059.004"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": true,
+      "cve_examples": [],
+      "confidence": 0.9,
+      "provenance_tier": "gtfobins",
+      "pattern_regex": "--config\\s+alias\\.[a-zA-Z0-9_]+=[\\'\"]?!\\s*/bin/(ba)?sh|alias\\.[a-zA-Z0-9_]+=[\\'\"]?!\\s*/bin/(ba)?sh"
+    },
+    {
+      "rule_id": "SE-P-112",
+      "layer": 4,
+      "description": "docker run --privileged (container escape)",
+      "failure_family": "F2",
+      "mitre_techniques": [
+        "T1611"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": true,
+      "cve_examples": [],
+      "confidence": 0.8,
+      "provenance_tier": "gtfobins",
+      "pattern_regex": "\\bdocker\\s+run\\s+[^|;]*--privileged\\b"
+    },
+    {
+      "rule_id": "SE-P-113",
+      "layer": 4,
+      "description": "awk BEGIN /inet/tcp (gawk reverse shell)",
+      "failure_family": "F2",
+      "mitre_techniques": [
+        "T1071.001",
+        "T1059.004"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": true,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "gtfobins",
+      "pattern_regex": "\\b(gawk|awk|mawk)\\s+[\\'\"]BEGIN\\s*\\{[^}]*/inet/tcp/"
+    },
+    {
+      "rule_id": "SE-P-114",
+      "layer": 4,
+      "description": "PHP fsockopen + exec /bin/sh",
+      "failure_family": "F2",
+      "mitre_techniques": [
+        "T1071.001",
+        "T1059.004"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": true,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "gtfobins",
+      "pattern_regex": "fsockopen\\s*\\([^)]+\\)\\s*[;)][\\s\\S]{0,120}\\b(exec|system|passthru)\\s*\\([\\'\"]/bin/(ba)?sh"
+    },
+    {
+      "rule_id": "SE-P-115",
+      "layer": 4,
+      "description": "Ruby TCPSocket + shell callback",
+      "failure_family": "F2",
+      "mitre_techniques": [
+        "T1071.001",
+        "T1059.006"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": true,
+      "cve_examples": [],
+      "confidence": 0.9,
+      "provenance_tier": "gtfobins",
+      "pattern_regex": "\\bTCPSocket\\.new\\s*\\([\\'\"]?[\\w.-]+[\\'\"]?\\s*,\\s*\\d+\\s*\\)[\\s\\S]{0,200}(/bin/(ba|z)?sh|c\\.gets)"
+    },
+    {
+      "rule_id": "SE-P-116",
+      "layer": 4,
+      "description": "mkfifo + nc/openssl/telnet pipe",
+      "failure_family": "F2",
+      "mitre_techniques": [
+        "T1071.001"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": true,
+      "cve_examples": [],
+      "confidence": 0.9,
+      "provenance_tier": "gtfobins",
+      "pattern_regex": "\\bmkfifo\\s+\\S+[\\s\\S]{0,200}\\|\\s*(nc|ncat|openssl|telnet|socat)\\b"
+    },
+    {
+      "rule_id": "SE-P-117",
+      "layer": 4,
+      "description": "socat tcp-connect + exec:/bin/sh",
+      "failure_family": "F2",
+      "mitre_techniques": [
+        "T1071.001",
+        "T1059.004"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": true,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "gtfobins",
+      "pattern_regex": "\\bsocat\\s+[^|]*(tcp[\\-:]connect|tcp[0-9]*:)[^|]*exec:\\s*[\\'\"]?/bin/(ba)?sh"
+    },
+    {
+      "rule_id": "SE-P-118",
+      "layer": 4,
+      "description": "smbclient get/put system file",
+      "failure_family": "F3",
+      "mitre_techniques": [
+        "T1105",
+        "T1048"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": true,
+      "cve_examples": [],
+      "confidence": 0.9,
+      "provenance_tier": "gtfobins",
+      "pattern_regex": "\\bsmbclient\\s+[^|]*-c\\s+[\\'\"](get|put)\\s+/(etc|root|home|var)/"
+    },
+    {
+      "rule_id": "SE-P-119",
+      "layer": 4,
+      "description": "file:// scheme to secret path",
+      "failure_family": "F3",
+      "mitre_techniques": [
+        "T1552.001",
+        "T1003.008"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": true,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "gtfobins",
+      "pattern_regex": "file:///+(etc/(shadow|passwd|sudoers|pam\\.d)|root/|home/[^/]+/\\.(ssh|aws|gnupg|docker|kube))"
+    },
+    {
+      "rule_id": "SE-P-120",
+      "layer": 4,
+      "description": "HTTP fetch to system cred path",
+      "failure_family": "F3",
+      "mitre_techniques": [
+        "T1105",
+        "T1552.001"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": true,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "gtfobins",
+      "pattern_regex": "\\b(wget|curl|aria2c|lwp-download|ab)\\s+[^|]*https?://[^\\s]+/etc/(shadow|passwd|sudoers)\\b"
+    },
+    {
+      "rule_id": "SE-P-121",
+      "layer": 4,
+      "description": "whois -h/-p exfil channel",
+      "failure_family": "F4",
+      "mitre_techniques": [
+        "T1071.001"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": "A03:2021 Injection",
+      "gtfobins_related": true,
+      "cve_examples": [],
+      "confidence": 0.75,
+      "provenance_tier": "gtfobins",
+      "pattern_regex": "\\bwhois\\s+-h\\s+[\\w.-]+\\s+-p\\s+\\d+\\s+\\S+"
+    },
+    {
+      "rule_id": "SE-P-122",
+      "layer": 4,
+      "description": "tftp get/put system path",
+      "failure_family": "F4",
+      "mitre_techniques": [
+        "T1105"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": "A03:2021 Injection",
+      "gtfobins_related": true,
+      "cve_examples": [],
+      "confidence": 0.9,
+      "provenance_tier": "gtfobins",
+      "pattern_regex": "\\btftp\\s+(-[a-z]+\\s+)?[\\w.-]+\\s+(get|put)\\s+/(etc|root|home)/"
+    },
+    {
+      "rule_id": "SE-P-123",
+      "layer": 4,
+      "description": "nc listen redirecting from secret",
+      "failure_family": "F3",
+      "mitre_techniques": [
+        "T1048"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": true,
+      "cve_examples": [],
+      "confidence": 0.95,
+      "provenance_tier": "gtfobins",
+      "pattern_regex": "\\bnc\\s+(-[a-zA-Z]*l[a-zA-Z]*|--listen)\\s+[^|]*<\\s*/(etc/(shadow|passwd|sudoers)|root/|home/[^/]+/\\.(ssh|aws))"
+    },
+    {
+      "rule_id": "SE-P-124",
+      "layer": 4,
+      "description": "server listen on 0.0.0.0 all-interfaces",
+      "failure_family": "F5",
+      "mitre_techniques": [
+        "T1090.001"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": true,
+      "cve_examples": [],
+      "confidence": 0.75,
+      "provenance_tier": "gtfobins",
+      "pattern_regex": "(--address=0\\.0\\.0\\.0|-S\\s+0\\.0\\.0\\.0:|--bind=0\\.0\\.0\\.0|--listen=0\\.0\\.0\\.0|kubectl\\s+proxy\\s+--address=0\\.0\\.0\\.0)"
+    },
+    {
+      "rule_id": "SE-P-125",
+      "layer": 4,
+      "description": "finger remote exfil pattern",
+      "failure_family": "F4",
+      "mitre_techniques": [
+        "T1071.001"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": "A03:2021 Injection",
+      "gtfobins_related": true,
+      "cve_examples": [],
+      "confidence": 0.7,
+      "provenance_tier": "gtfobins",
+      "pattern_regex": "\\bfinger\\s+[a-zA-Z_][\\w]*@[\\w.-]+\\b"
+    },
+    {
+      "rule_id": "SE-P-126",
+      "layer": 4,
+      "description": "interpreter inline file-write primitive",
+      "failure_family": "F4",
+      "mitre_techniques": [
+        "T1105",
+        "T1059.006"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": "A03:2021 Injection",
+      "gtfobins_related": true,
+      "cve_examples": [],
+      "confidence": 0.85,
+      "provenance_tier": "gtfobins",
+      "pattern_regex": "\\b(node|ruby|lua|python[23]?|perl|elvish|jrunscript|julia)\\s+-[eEr]\\s+[\\'\"][^\\'\"]*(writeFileSync|File\\.open\\s*\\([^)]*,\\s*[\\'\"]w|io\\.open\\s*\\([^)]*,\\s*[\\'\"]w|FileWriter|open\\s*\\([^)]*,\\s*[\\'\"]w)"
+    },
+    {
+      "rule_id": "SE-P-127",
+      "layer": 4,
+      "description": "gdb dump value (memory exfil)",
+      "failure_family": "F4",
+      "mitre_techniques": [
+        "T1005"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": "A03:2021 Injection",
+      "gtfobins_related": true,
+      "cve_examples": [],
+      "confidence": 0.9,
+      "provenance_tier": "gtfobins",
+      "pattern_regex": "\\bgdb\\s+[^|]*-ex\\s+[\\'\"]dump\\s+(value|binary|memory)\\b"
+    },
+    {
+      "rule_id": "SE-P-128",
+      "layer": 4,
+      "description": "cpio pass-through write",
+      "failure_family": "F4",
+      "mitre_techniques": [
+        "T1105"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": "A03:2021 Injection",
+      "gtfobins_related": true,
+      "cve_examples": [],
+      "confidence": 0.75,
+      "provenance_tier": "gtfobins",
+      "pattern_regex": "\\bcpio\\s+(-[a-z]*p[a-z]*\\b|--pass-through)"
+    },
+    {
+      "rule_id": "SE-P-129",
+      "layer": 4,
+      "description": "curl file:// + -o to writable dir",
+      "failure_family": "F4",
+      "mitre_techniques": [
+        "T1005"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": "A03:2021 Injection",
+      "gtfobins_related": true,
+      "cve_examples": [],
+      "confidence": 0.85,
+      "provenance_tier": "gtfobins",
+      "pattern_regex": "\\bcurl\\s+[^|]*file://[^\\s]+\\s+[^|]*-o\\s+/(tmp|home|var/tmp|root)/"
+    },
+    {
+      "rule_id": "SE-P-130",
+      "layer": 4,
+      "description": "local-file package install (arbitrary script)",
+      "failure_family": "F4",
+      "mitre_techniques": [
+        "T1546.016",
+        "T1204.002"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": "A03:2021 Injection",
+      "gtfobins_related": true,
+      "cve_examples": [],
+      "confidence": 0.85,
+      "provenance_tier": "gtfobins",
+      "pattern_regex": "\\b(rpm\\s+-[Uivh]{1,3}\\b[^|]*\\.rpm|yum\\s+localinstall\\b|dnf\\s+localinstall\\b|pkg\\s+install\\s+[^|]*\\./\\S+\\.(txz|pkg)|snap\\s+install\\b[^|]*--dangerous\\b)"
+    },
+    {
+      "rule_id": "SE-P-131",
+      "layer": 4,
+      "description": "m4 esyscmd/syscmd builtin",
+      "failure_family": "F4",
+      "mitre_techniques": [
+        "T1059.004"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": "A03:2021 Injection",
+      "gtfobins_related": true,
+      "cve_examples": [],
+      "confidence": 0.9,
+      "provenance_tier": "gtfobins",
+      "pattern_regex": "\\besyscmd\\s*\\(|\\bsyscmd\\s*\\("
+    },
+    {
+      "rule_id": "SE-P-132",
+      "layer": 4,
+      "description": "aria2c/wget on-download-complete handler",
+      "failure_family": "F4",
+      "mitre_techniques": [
+        "T1059.004"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": "A03:2021 Injection",
+      "gtfobins_related": true,
+      "cve_examples": [],
+      "confidence": 0.85,
+      "provenance_tier": "gtfobins",
+      "pattern_regex": "--on-download-complete=\\S+"
+    },
+    {
+      "rule_id": "SE-P-133",
+      "layer": 4,
+      "description": "--conf-script= invokes external script",
+      "failure_family": "F4",
+      "mitre_techniques": [
+        "T1059.004"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": "A03:2021 Injection",
+      "gtfobins_related": true,
+      "cve_examples": [],
+      "confidence": 0.85,
+      "provenance_tier": "gtfobins",
+      "pattern_regex": "--(conf-script|exec-config|script-file)=[\\'\"]?\\S*sh\\b|\\bdnsmasq\\s+[^|]*--conf-script="
+    },
+    {
+      "rule_id": "SE-P-134",
+      "layer": 4,
+      "description": "nohup executing writable-dir binary",
+      "failure_family": "F4",
+      "mitre_techniques": [
+        "T1059.004"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": "A03:2021 Injection",
+      "gtfobins_related": true,
+      "cve_examples": [],
+      "confidence": 0.7,
+      "provenance_tier": "gtfobins",
+      "pattern_regex": "\\bnohup\\s+/(path/to|tmp|var/tmp|home/[^/]+/\\.)\\S+"
+    },
+    {
+      "rule_id": "SE-P-135",
+      "layer": 4,
+      "description": "LaTeX \\verbatiminput of system file",
+      "failure_family": "F3",
+      "mitre_techniques": [
+        "T1552.001"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": true,
+      "cve_examples": [],
+      "confidence": 0.85,
+      "provenance_tier": "gtfobins",
+      "pattern_regex": "\\\\verbatiminput\\s*\\{\\s*/(etc|root|home)/|\\\\input\\s*\\{\\s*/(etc|root)/"
+    },
+    {
+      "rule_id": "SE-P-136",
+      "layer": 4,
+      "description": "jjs/jrunscript Java network or process primitive",
+      "failure_family": "F4",
+      "mitre_techniques": [
+        "T1059.006",
+        "T1105"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": "A03:2021 Injection",
+      "gtfobins_related": true,
+      "cve_examples": [],
+      "confidence": 0.85,
+      "provenance_tier": "gtfobins",
+      "pattern_regex": "\\b(jjs|jrunscript)\\s+[^|]*-e\\s+[\\'\"][^\\'\"]*(Java\\.type\\s*\\([\\'\"]java\\.(net|io|lang\\.ProcessBuilder))"
+    },
+    {
+      "rule_id": "SE-P-137",
+      "layer": 4,
+      "description": "eval of positional parameter (command injection)",
+      "failure_family": "F2",
+      "mitre_techniques": [
+        "T1059.004"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.9,
+      "provenance_tier": "manual",
+      "pattern_regex": "\\beval\\s+[\"\\']?\\$\\{?[1-9@*#]"
+    },
+    {
+      "rule_id": "SE-P-138",
+      "layer": 4,
+      "description": "eval of user-named variable (command injection)",
+      "failure_family": "F2",
+      "mitre_techniques": [
+        "T1059.004"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.75,
+      "provenance_tier": "manual",
+      "pattern_regex": "\\beval\\s+[\"\\']?\\$\\{?(input|user|arg|cmd|query|param)\\w*"
+    },
+    {
+      "rule_id": "SE-P-139",
+      "layer": 4,
+      "description": "destructive op on /usr/ system path",
+      "failure_family": "F1",
+      "mitre_techniques": [
+        "T1485"
+      ],
+      "shellcheck_ids": [],
+      "owasp_category": null,
+      "gtfobins_related": false,
+      "cve_examples": [],
+      "confidence": 0.85,
+      "provenance_tier": "manual",
+      "pattern_regex": "\\b(rm|dd|shred|truncate|unlink)\\s+[^|;&\\n]{0,60}?[\"\\']?/usr/(?!local/)\\S+"
+    }
+  ]
+}
