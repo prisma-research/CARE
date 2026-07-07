@@ -1,6 +1,32 @@
-# CARE — Canonicalization, Attribution, and Resolution Engine
+<div align="center">
+
+# 🛡️ CARE
+
+### **C**anonicalization · **A**ttribution · **R**esolution **E**ngine
 
 **A shell-specific, static-first pre-execution verifier for shell-executing LLM agents.**
+
+[![ISSRE 2026](https://img.shields.io/badge/ISSRE%202026-Accepted-2ea44f?style=for-the-badge)](https://ameame1.github.io/CARE/)
+[![Project Page](https://img.shields.io/badge/Project-Page-3E7CB1?style=for-the-badge)](https://ameame1.github.io/CARE/)
+[![Python](https://img.shields.io/badge/Python-3.9%2B-D9A62E?style=for-the-badge)](#install)
+[![License: MIT](https://img.shields.io/badge/License-MIT-8A8373?style=for-the-badge)](LICENSE)
+
+*Fast like a rule engine. Careful like a judge.*
+
+**85.64 % F1 · 0.91 % FPR · 2.32 ms mean latency — and only ~4 % of commands ever reach the LLM.**
+
+</div>
+
+---
+
+## 📢 News
+
+- **[2026-06-16]** 🎉🎉 **Congratulations!** Our paper *"CARE: Pre-Execution Command Verification for Shell-Executing LLM Agents"* has been **accepted at the IEEE International Symposium on Software Reliability Engineering (ISSRE 2026)**!
+- **[2026-06-16]** 🚀 Project page is live: **<https://ameame1.github.io/CARE/>**
+
+---
+
+## Overview
 
 CARE mediates a candidate shell command *before* it reaches the host shell.
 It canonicalizes the command into a stable verification target, derives
@@ -10,10 +36,27 @@ underdetermined **WARN** cases to an LLM judge. The common case stays fast,
 reproducible, and auditable; neural adjudication is reserved for borderline
 commands.
 
+<p align="center">
+  <img src="docs/assets/overview.png" alt="CARE three-stage pipeline: Canonicalization, Attribution, Resolution" width="920">
+</p>
+
 This repository contains the reference implementation of the CARE pipeline as
 described in the paper *"CARE: Pre-Execution Command Verification for
-Shell-Executing LLM Agents."* It ships **only the CARE method** — no baselines
-and no experiment harness.
+Shell-Executing LLM Agents"* (ISSRE 2026). It ships **only the CARE method** —
+no baselines and no experiment harness.
+
+### Results at a glance (main split, 549 commands, 12 baselines)
+
+| Guard | F1 % ↑ | DR % ↑ | FPR % ↓ | Latency ↓ |
+|---|---:|---:|---:|---:|
+| Best static baseline (OpenClaw4Layer) | 72.62 | 57.27 | 0.30 | 0.02 ms |
+| Best LLM judge (LLMJudge) | 73.09 | 67.27 | 11.25 | 45.9 ms |
+| **CARE (w/o Resolution)** — static only | **84.99** | **75.91** | **1.82** | **0.34 ms** |
+| **CARE** — full pipeline | **85.64** | **75.91** | **0.91** | **2.32 ms** |
+
+Benign utility is essentially untouched (57.00 % NL2SH resolve rate vs 57.33 %
+unguarded; 1 deny in 300 tasks), and on 600 Docker-executed, LLM-generated
+attack commands the static profile cuts realised harm from 74.8 % to **37.3 %**.
 
 ---
 
@@ -212,7 +255,18 @@ hazards are out of scope.
 
 ## Citation
 
-If you use CARE, please cite the paper (ISSRE 2026).
+If you use CARE, please cite our ISSRE 2026 paper:
+
+```bibtex
+@inproceedings{liu2026care,
+  author    = {Liu, Yu and Zhang, Wenxiao and Yang, Zhiwei and Zhang, Zhongyi and
+               Feng, Hanqi and Wang, Xinyu and Qiu, Peng and Liu, Yanbing and
+               Poczos, Barnabas and Hong, Jin B.},
+  title     = {{CARE}: Pre-Execution Command Verification for Shell-Executing {LLM} Agents},
+  booktitle = {IEEE International Symposium on Software Reliability Engineering (ISSRE)},
+  year      = {2026}
+}
+```
 
 ## License
 
