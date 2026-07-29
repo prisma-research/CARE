@@ -6,8 +6,8 @@
 
 **A shell-specific, static-first pre-execution verifier for shell-executing LLM agents.**
 
-[![ISSRE 2026](https://img.shields.io/badge/ISSRE%202026-Accepted-2ea44f?style=for-the-badge)](https://ameame1.github.io/CARE/)
-[![Project Page](https://img.shields.io/badge/Project-Page-3E7CB1?style=for-the-badge)](https://ameame1.github.io/CARE/)
+[![ISSRE 2026](https://img.shields.io/badge/ISSRE%202026-Accepted-2ea44f?style=for-the-badge)](https://prisma-research.github.io/CARE/)
+[![Project Page](https://img.shields.io/badge/Project-Page-3E7CB1?style=for-the-badge)](https://prisma-research.github.io/CARE/)
 [![Python](https://img.shields.io/badge/Python-3.9%2B-D9A62E?style=for-the-badge)](#install)
 [![License: MIT](https://img.shields.io/badge/License-MIT-8A8373?style=for-the-badge)](LICENSE)
 
@@ -22,7 +22,7 @@
 ## 📢 News
 
 - **[2026-06-16]** 🎉🎉 **Congratulations!** Our paper *"CARE: Pre-Execution Command Verification for Shell-Executing LLM Agents"* has been **accepted at the IEEE International Symposium on Software Reliability Engineering (ISSRE 2026)**!
-- **[2026-06-16]** 🚀 Project page is live: **<https://ameame1.github.io/CARE/>**
+- **[2026-06-16]** 🚀 Project page is live: **<https://prisma-research.github.io/CARE/>**
 
 ---
 
@@ -145,7 +145,7 @@ fails closed to DENY.
 ## Install
 
 ```bash
-git clone https://github.com/Ameame1/CARE.git
+git clone https://github.com/prisma-research/CARE.git
 cd CARE
 pip install -e .            # installs bashlex; add [resolution] for the LLM judge
 # or, minimally:

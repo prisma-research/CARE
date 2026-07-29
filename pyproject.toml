@@ -23,7 +23,7 @@ resolution = ["openai>=1.0"]
 test = ["pytest>=7.0"]
 
 [project.urls]
-Homepage = "https://github.com/Ameame1/CARE"
+Homepage = "https://github.com/prisma-research/CARE"
 
 [tool.setuptools]
 packages = ["care"]
