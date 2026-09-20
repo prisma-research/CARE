@@ -1,28 +1,43 @@
-<div align="center">
+<p align="center">
+  <img src="docs/assets/care-logo.svg" alt="CARE" width="420">
+</p>
 
-# 🛡️ CARE
+<h1 align="center">CARE: Pre-Execution Command Verification<br>for Shell-Executing LLM Agents</h1>
 
-### **C**anonicalization · **A**ttribution · **R**esolution **E**ngine
+<p align="center">
+  <b>C</b>anonicalization · <b>A</b>ttribution · <b>R</b>esolution <b>E</b>ngine<br>
+  A shell-specific, static-first pre-execution verifier for shell-executing LLM agents.
+</p>
 
-**A shell-specific, static-first pre-execution verifier for shell-executing LLM agents.**
+<p align="center">
+  <a href="https://prisma-research.github.io/CARE/"><img src="https://img.shields.io/badge/ISSRE_2026-Accepted-238636?style=flat-square" alt="ISSRE 2026"></a>
+  <a href="https://prisma-research.github.io/CARE/"><img src="https://img.shields.io/badge/Project-Page-167D8D?style=flat-square" alt="Project Page"></a>
+  <a href="https://github.com/prisma-research/CARE"><img src="https://img.shields.io/badge/GitHub-Code-24292F?style=flat-square&logo=github&logoColor=white" alt="Code"></a>
+  <a href="#install"><img src="https://img.shields.io/badge/Python-3.9%2B-3776AB?style=flat-square" alt="Python 3.9+"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-A86916?style=flat-square" alt="License MIT"></a>
+  <a href="#citation"><img src="https://img.shields.io/badge/BibTeX-555555?style=flat-square" alt="BibTeX"></a>
+</p>
 
-[![ISSRE 2026](https://img.shields.io/badge/ISSRE%202026-Accepted-2ea44f?style=for-the-badge)](https://prisma-research.github.io/CARE/)
-[![Project Page](https://img.shields.io/badge/Project-Page-3E7CB1?style=for-the-badge)](https://prisma-research.github.io/CARE/)
-[![Python](https://img.shields.io/badge/Python-3.9%2B-D9A62E?style=for-the-badge)](#install)
-[![License: MIT](https://img.shields.io/badge/License-MIT-8A8373?style=for-the-badge)](LICENSE)
+<p align="center">
+  <a href="#overview">Overview</a> ·
+  <a href="#pipeline">Pipeline</a> ·
+  <a href="#install">Install</a> ·
+  <a href="#usage">Usage</a> ·
+  <a href="#citation">Citation</a>
+</p>
 
-*Fast like a rule engine. Careful like a judge.*
-
-**85.64 % F1 · 0.91 % FPR · 2.32 ms mean latency — and only ~4 % of commands ever reach the LLM.**
-
-</div>
+<p align="center">
+  <i>Fast like a rule engine. Careful like a judge.</i><br>
+  <b>85.64 % F1 · 0.91 % FPR · 2.32 ms mean latency</b><br>
+  Only ~4 % of commands ever reach the LLM.
+</p>
 
 ---
 
-## 📢 News
+## News
 
-- **[2026-06-16]** 🎉🎉 **Congratulations!** Our paper *"CARE: Pre-Execution Command Verification for Shell-Executing LLM Agents"* has been **accepted at the IEEE International Symposium on Software Reliability Engineering (ISSRE 2026)**!
-- **[2026-06-16]** 🚀 Project page is live: **<https://prisma-research.github.io/CARE/>**
+- **[2026-06-16]** Our paper *"CARE: Pre-Execution Command Verification for Shell-Executing LLM Agents"* has been **accepted at the IEEE International Symposium on Software Reliability Engineering (ISSRE 2026)**.
+- **[2026-06-16]** The [project page](https://prisma-research.github.io/CARE/) is live.
 
 ---
 
@@ -37,7 +52,7 @@ reproducible, and auditable; neural adjudication is reserved for borderline
 commands.
 
 <p align="center">
-  <img src="docs/assets/overview.png" alt="CARE three-stage pipeline: Canonicalization, Attribution, Resolution" width="920">
+  <a href="docs/assets/overview.png"><img src="docs/assets/overview.png" alt="CARE three-stage pipeline: Canonicalization, Attribution, Resolution" width="920"></a>
 </p>
 
 This repository contains the reference implementation of the CARE pipeline as
