@@ -26,14 +26,14 @@
 
 ---
 
-## News
+## 📢 News
 
-- **[2026-06-16]** Our paper *"CARE: Pre-Execution Command Verification for Shell-Executing LLM Agents"* has been **accepted at the IEEE International Symposium on Software Reliability Engineering (ISSRE 2026)**.
-- **[2026-06-16]** The [project page](https://prisma-research.github.io/CARE/) is live.
+- **[2026-06-16]** 🎉 Our paper *"CARE: Pre-Execution Command Verification for Shell-Executing LLM Agents"* has been **accepted at the IEEE International Symposium on Software Reliability Engineering (ISSRE 2026)**!
+- **[2026-06-16]** 🚀 The [project page](https://prisma-research.github.io/CARE/) is live.
 
 ---
 
-## Overview
+## 🎯 Overview
 
 CARE mediates a candidate shell command *before* it reaches the host shell.
 It canonicalizes the command into a stable verification target, derives
@@ -67,7 +67,7 @@ attack commands the static profile cuts realised harm from 74.8 % to **37.3 %**.
 
 ---
 
-## Pipeline
+## ⚙️ Pipeline
 
 CARE is a three-stage pipeline (paper Sec. III, Algorithm 1):
 
@@ -131,7 +131,7 @@ fails closed to DENY.
 
 ---
 
-## Repository layout and paper mapping
+## 💻 Repository layout and paper mapping
 
 | File | Paper concept |
 |------|---------------|
@@ -149,7 +149,9 @@ fails closed to DENY.
 
 ---
 
-## Install
+<a id="install"></a>
+
+## 📦 Install
 
 ```bash
 git clone https://github.com/prisma-research/CARE.git
@@ -164,7 +166,7 @@ L1 layer degrades to a regex fallback.
 
 ---
 
-## Usage
+## 🚀 Usage
 
 ### Static engine (deterministic, no network)
 
@@ -221,7 +223,7 @@ auto     = CAREEngine(mode="auto")      # τ_low=0.20, τ_high=0.50
 
 ---
 
-## Rule bank
+## 🛡️ Rule bank
 
 `care/rules/rule_provenance.json` contains the **139** provenance-tagged rules
 used by L4, split by provenance tier (Sec. IV, Appendix A.4):
@@ -239,7 +241,7 @@ in-code rule specification with `python -m care.pattern`.
 
 ---
 
-## Reproducing the case studies
+## 🧪 Reproducing the case studies
 
 ```bash
 python examples/quickstart.py
@@ -252,7 +254,7 @@ on representative commands.
 
 ---
 
-## Scope
+## 📌 Scope
 
 CARE is a **single-command, pre-execution** verifier operating on the command
 string plus bounded path context. It does not observe agent prompts,
@@ -260,7 +262,9 @@ reasoning, or conversation history, and is a complement to — not a replacement
 for — sandboxing and host hardening. Session-level and trajectory-level
 hazards are out of scope.
 
-## Citation
+<a id="citation"></a>
+
+## 📝 Citation
 
 If you use CARE, please cite our ISSRE 2026 paper:
 
@@ -275,6 +279,6 @@ If you use CARE, please cite our ISSRE 2026 paper:
 }
 ```
 
-## License
+## 📄 License
 
 MIT — see [LICENSE](LICENSE).
