@@ -19,14 +19,6 @@
 </p>
 
 <p align="center">
-  <a href="#overview">Overview</a> ·
-  <a href="#pipeline">Pipeline</a> ·
-  <a href="#install">Install</a> ·
-  <a href="#usage">Usage</a> ·
-  <a href="#citation">Citation</a>
-</p>
-
-<p align="center">
   <i>Fast like a rule engine. Careful like a judge.</i><br>
   <b>85.64 % F1 · 0.91 % FPR · 2.32 ms mean latency</b><br>
   Only ~4 % of commands ever reach the LLM.
