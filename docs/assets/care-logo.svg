@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="720" height="180" viewBox="0 0 720 180" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="180" viewBox="0 0 560 180" role="img" aria-labelledby="title desc">
   <title id="title">CARE</title>
   <desc id="desc">A shield enclosing a shell prompt and a verification check beside the CARE wordmark.</desc>
-  <rect width="720" height="180" rx="8" fill="#ffffff"/>
+  <rect width="560" height="180" rx="8" fill="#ffffff"/>
   <path d="M106 26 159 45v43c0 34-22 54-53 68-31-14-53-34-53-68V45Z" fill="#e9f5f3" stroke="#167d8d" stroke-width="7" stroke-linejoin="round"/>
   <path d="m76 65 18 17-18 17m30 0h21" fill="none" stroke="#202a30" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
   <circle cx="145" cy="124" r="26" fill="#238636" stroke="#ffffff" stroke-width="6"/>
