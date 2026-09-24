@@ -269,13 +269,11 @@ hazards are out of scope.
 If you use CARE, please cite our ISSRE 2026 paper:
 
 ```bibtex
-@inproceedings{liu2026care,
-  author    = {Liu, Yu and Zhang, Wenxiao and Yang, Zhiwei and Zhang, Zhongyi and
-               Feng, Hanqi and Wang, Xinyu and Qiu, Peng and Liu, Yanbing and
-               Poczos, Barnabas and Hong, Jin B.},
-  title     = {{CARE}: Pre-Execution Command Verification for Shell-Executing {LLM} Agents},
-  booktitle = {IEEE International Symposium on Software Reliability Engineering (ISSRE)},
-  year      = {2026}
+@article{liu2026care,
+  title   = {CARE: Pre-Execution Command Verification for Shell-Executing LLM Agents},
+  author  = {Liu, Yu and Zhang, Wenxiao and Yang, Zhiwei and Zhang, Zhongyi and Feng, Hanqi and Wang, Xinyu and Qiu, Peng and Liu, Yanbing and Poczos, Barnabas and Hong, Jin B.},
+  journal = {arXiv preprint arXiv:2607.21642},
+  year    = {2026}
 }
 ```
 
